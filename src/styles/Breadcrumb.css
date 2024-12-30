@@ -1,0 +1,32 @@
+/* Breadcrumb.css */
+.breadcrumb {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding: 10px 85px;
+  background-color: #e4e4e4;
+}
+
+.breadcrumb ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.breadcrumb ul li {
+  margin-right: 10px;
+}
+
+.breadcrumb ul li a {
+  text-decoration: none;
+  color: #007bff;
+  transition: color 0.3s;
+}
+
+.breadcrumb ul li a:hover {
+  color: #0056b3;
+}
+
+.breadcrumb ul li span {
+  color: #555;
+}
