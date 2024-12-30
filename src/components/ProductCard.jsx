@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/ProductCard.css";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onWishlistClick }) => {
+  const [isInWishlist, setIsInWishlist] = useState(false);
+
+  const handleWishlistClick = () => {
+    setIsInWishlist(!isInWishlist);
+    onWishlistClick(product, !isInWishlist); // Pass the product and its updated state to the parent
+  };
+
   return (
     <div className="product-card">
       <div className="image-section">
         <img
           src={product?.image}
-          alt="Pull-Up Photo Album Box"
+          alt={product?.title}
           className="product-image"
         />
-        <button className="wishlist-btn">♡</button>
+        <button
+          className={`wishlist-btn ${isInWishlist ? "active" : ""}`}
+          onClick={handleWishlistClick}
+        >
+          {isInWishlist ? "♥" : "♡"}
+        </button>
       </div>
       <div className="product-details">
         <h3 className="product-title">{product?.title}</h3>

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify"; // Import ToastContainer
+import { FaTrash } from "react-icons/fa"; // Import a dustbin icon from react-icons
+import "react-toastify/dist/ReactToastify.css"; // Import CSS for styling
 import "../styles/Products.css";
 import ProductCard from "./ProductCard";
 
 const Products = () => {
+  const [wishlist, setWishlist] = useState([]);
   const productList = [
     {
       id: 8301,
@@ -60,18 +64,47 @@ const Products = () => {
       tag: "Best Seller",
     },
   ];
+
+  const handleWishlistClick = (product, isInWishlist) => {
+    if (isInWishlist) {
+      setWishlist((prevWishlist) => [...prevWishlist, product]);
+      toast.success(`${product.title} added to wishlist!`, {
+        position: "top-center",
+        autoClose: 2000, // Auto close after 2 seconds
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+      });
+    } else {
+      setWishlist((prevWishlist) =>
+        prevWishlist.filter((item) => item.id !== product.id)
+      );
+      toast.info(`${product.title} removed from wishlist.`, {
+        position: "top-center",
+        autoClose: 2000, // Auto close after 2 seconds
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        icon: <FaTrash color="red" />, // Custom icon for removal with color
+      });
+    }
+  };
+
   return (
     <div className="products">
       <h1>Our Products</h1>
       <ul className="products-list">
         {productList.map((product) => (
-          <ProductCard product={product} />
-          //   <li key={product.id}>
-          //     <h2>{product.name}</h2>
-          //     <p>Price: {product.price}</p>
-          //   </li>
+          <ProductCard
+            key={product.id}
+            product={product}
+            onWishlistClick={handleWishlistClick}
+          />
         ))}
       </ul>
+
+      {/* Add ToastContainer to render the toasts */}
+      <ToastContainer />
     </div>
   );
 };

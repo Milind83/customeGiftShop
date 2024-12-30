@@ -111,3 +111,19 @@
   font-weight: bold;
   background-color: #f0f8ff;
 }
+.wishlist-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #ff6f61;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.wishlist-btn.active {
+  color: #d9534f; /* Color when added to wishlist */
+}
+
+.wishlist-btn:hover {
+  color: #ff8f7e;
+}
