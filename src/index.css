@@ -9,6 +9,24 @@ a {
   color: inherit;
 }
 
+.scrollable-container {
+  max-height: 100vh; /* Adjust the height as needed */
+  overflow-y: auto; /* Enables vertical scrolling when content exceeds max-height */
+}
+
+.scrollable-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 10px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
 /* Responsive Typography */
 @media (max-width: 768px) {
   body {

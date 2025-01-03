@@ -114,9 +114,15 @@ nav ul li a:hover {
   nav ul li a {
     font-size: 1.1rem;
   }
+  .devider {
+    margin: 10px 25px;
+    color: white;
+    font-size: 30px;
+  }
 
   .icons {
     gap: 15px;
+    margin-right: 18px;
   }
 }
 
@@ -128,7 +134,11 @@ nav ul li a:hover {
   nav ul li a {
     font-size: 1rem;
   }
-
+  .devider {
+    margin: 10px 25px;
+    color: white;
+    font-size: 30px;
+  }
   .icon {
     font-size: 1.2rem;
   }
